@@ -1,0 +1,89 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+    <!-- Start Header/Navigation -->
+    <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'zell:main' %}">DomDivanov<span>.</span></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+            <div class="collapse navbar-collapse" id="navbarsFurni">
+                <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+                    <li><a class="nav-link" href="{% url 'zell:main' %}">Главный</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="{% url 'zell:products' %}">Продукты</a></li>
+                    <li><a class="nav-link" href="{% url 'zell:about_us' %}">Про нас</a></li>
+                    <li><a class="nav-link" href="{% url 'zell:contacts' %}">Свяжитесь с нами</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+    <div class="hero">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-7">
+                    <div class="intro-excerpt">
+                        <h2 class="text-white">{{ product_object.name }}</h2>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a class="text-white" style="text-decoration: none;" href="{% url 'zell:main' %}">Главный</a></li>
+                        <li class="breadcrumb-item"><a class="text-white" style="text-decoration: none;" href="#">Продукты</a></li>
+                        <li class="breadcrumb-item"><a class="text-white" style="text-decoration: none;" href="{% url 'zell:main_detail' category_id %}">{{ category_object.name }}</a></li>
+                        <li class="breadcrumb-item"><a class="text-white" style="text-decoration: none;" href="#">{{ product_object.name }}</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product_section mb-5">
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col-lg-7">
+                    <div class="carousel slide" id="carouselDemo" data-bs-wrap="true" data-bs-ride="carousel">
+                        <div class="carousel-inner" style="height: 400px;">
+                            <div class="carousel-item active" data-bs-interval="2000">
+                                <img class="d-block w-100" style="height: 400px" src="{{ product_object.poster.url }}">
+                            </div>
+                            {% for additional_image in additional_images%}
+                            <div class="carousel-item" data-bs-interval="2000">
+                                <img class="d-block w-100" style="height: 400px" src="{{ additional_image.image.url }}">
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselDemo" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon">
+                                
+                            </span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselDemo" data-bs-slide="next">
+                            <span class="carousel-control-next-icon">
+                                
+                            </span>
+                        </button>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div style="margin-left: 30px; margin-top: 30px">
+                        <div>
+                            <h2 class="section-title mb-4">{{ product_object.name }}</h2>
+                            <div><p><a herf="#" class="btn">{{product_object.price}} тенге</a></p></div>
+                        </div>
+                        <p>{{ product_object.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

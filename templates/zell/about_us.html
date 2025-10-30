@@ -1,0 +1,92 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+    <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'zell:main' %}">DomDivanov<span>.</span></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsFurni">
+                <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+                    <li><a class="nav-link" href="{% url 'zell:main' %}">Главный</a></li>
+                    <li><a class="nav-link" href="{% url 'zell:products' %}">Продукты</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="{% url 'zell:about_us' %}">Про нас</a></li>
+                    <li><a class="nav-link" href="{% url 'zell:contacts' %}">Свяжитесь с нами</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="hero">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-5">
+                    <div class="intro-excerpt">
+                        <h1>Про нас</h1>
+                        <p class="mb-4">Мы идем в ногу с современным декором, продавая здоровую и качественную мебель под брендами ZELL FURNITURE</p>
+                        <p><a href="{% url 'zell:products' %}" class="btn btn-secondary me-2">Посмотреть сейчас</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="hero-img-wrap">
+                        <img src="{% static 'images/couch.png' %}" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="why-choose-section">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Почему выбрали нас</h2>
+                    <p>Клиенты находятся в центре всего, что мы делаем в DomDivanov. 
+                        Мы гарантируем, что во всех наших инициативах мы получим правильное решение для клиента. 
+                        Мы устанавливаем долгосрочные отношения с каждым клиентом и стремимся доставлять им удовольствие при каждом взаимодействии. 
+                        Мы стремимся установить глобальный стандарт оценки удовлетворенности клиентов.</p>
+
+                    <div class="row my-5">
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                <div class="icon">
+                                    <img src="{% static 'images/truck.svg' %}" alt="Image" class="imf-fluid">
+                                </div>
+                                <h3>Быстро &amp; Бесплатная доставка внутри города</h3>
+                                <p>Наша приверженность эффективности означает, что вы можете наслаждаться роскошью быстрой доставки заказов, гарантируя, что вы получите желаемые товары в мгновение ока. Попрощайтесь с долгим ожиданием и приветствуйте мгновенное удовлетворение.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                <div class="icon">
+                                    <img src="{% static 'images/bag.svg' %}" alt="Image" class="imf-fluid">
+                                </div>
+                                <h3>Легко делать покупки</h3>
+                                <p>Навигация по нашей платформе очень проста благодаря удобному интерфейсу, который позволяет найти то, что вам нужно, всего за несколько кликов. Откройте для себя тщательно подобранный выбор товаров, тщательно организованный для интуитивного просмотра, который превратит ваш поход по магазинам в настоящее удовольствие.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-6">
+                            <div class="feature">
+                                <div class="icon">
+                                    <img src="{% static 'images/support.svg' %}" alt="Image" class="imf-fluid">
+                                </div>
+                                <h3>24/7 Поддержка</h3>
+                                <p>Наша преданная своему делу команда специалистов службы поддержки готова ответить на ваши запросы, решить проблемы и предоставить рекомендации в любое время. Будь то середина ночи или рассвет, мы здесь, чтобы дать ответы на ваши вопросы и оперативно устранить проблемы.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="img-wrap">
+                        <img src="{% static 'images/why-choose-us-img.jpg' %}" alt="Image" class="img-fluid">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
